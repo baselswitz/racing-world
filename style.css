@@ -1,0 +1,231 @@
+/* ===== BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #0a0a0a;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(20, 20, 20, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+.logo {
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px #ff0000;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.nav-links a:hover {
+  color: #ff0000;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.profile-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.4);
+}
+.hero-content h1 {
+  font-size: 3rem;
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff0000;
+}
+.hero-content p {
+  color: #ccc;
+  margin: 1rem 0;
+}
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #ff0000;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #ff3333;
+  box-shadow: 0 0 15px #ff3333;
+}
+
+/* ===== GALLERY ===== */
+.gallery-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: #111;
+}
+.gallery-section h2 {
+  color: #ff0000;
+  margin-bottom: 2rem;
+}
+.scroll-gallery {
+  overflow: hidden;
+}
+.gallery-track {
+  display: flex;
+  animation: scroll 40s linear infinite;
+}
+.gallery-track img {
+  width: 250px;
+  margin-right: 20px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.gallery-track img:hover {
+  transform: scale(1.05);
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== VIDEO SECTION ===== */
+.video-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: #0d0d0d;
+}
+.video-section h2 {
+  color: #007bff;
+  margin-bottom: 2rem;
+}
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.videos video {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #007bff;
+  transition: transform 0.3s ease;
+}
+.videos video:hover {
+  transform: scale(1.03);
+}
+
+/* ===== ABOUT ===== */
+.about-section {
+  background: #101010;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.about-section h2 {
+  color: #ff0000;
+  margin-bottom: 1.5rem;
+}
+.about-section p {
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== CONTACT ===== */
+.contact-section {
+  background: #0a0a0a;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.contact-section h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+.contact-section p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+  .navbar.active .nav-links {
+    display: flex;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ===== Mouse Trail Effect ===== */
+.spark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ff0000, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: fade 0.5s ease-out forwards;
+}
+
+@keyframes fade {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff0000, #007bff);
+  border-radius: 10px;
+}
